@@ -33,7 +33,7 @@ import { useSearchParams } from 'react-router-dom';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+  data: any;
   pageSizeOptions?: number[];
   pageCount: number;
 }
