@@ -24,24 +24,24 @@ export const columns: ColumnDef<Employee>[] = [
     enableHiding: false
   },
   {
-    accessorKey: 'first_name',
-    header: 'NAME'
+    accessorKey: 'songName',
+    header: 'SONG'
   },
   {
-    accessorKey: 'country',
-    header: 'COUNTRY'
+    accessorKey: 'artist',
+    header: 'ARTIST'
   },
   {
-    accessorKey: 'email',
-    header: 'EMAIL'
+    accessorKey: 'dateStreamed',
+    header: 'DATE STREAMED'
   },
   {
-    accessorKey: 'job',
-    header: 'COMPANY'
+    accessorKey: 'streamCount',
+    header: 'STREAM COUNT'
   },
   {
-    accessorKey: 'gender',
-    header: 'GENDER'
+    accessorKey: 'userId',
+    header: 'ID'
   },
   {
     id: 'actions',
