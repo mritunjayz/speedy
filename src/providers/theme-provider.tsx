@@ -38,7 +38,7 @@ export default function ThemeProvider({
     if (theme === 'system') {
       const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
         .matches
-        ? 'dark'
+        ? 'light'
         : 'light';
 
       root.classList.add(systemTheme);
@@ -52,7 +52,7 @@ export default function ThemeProvider({
     theme,
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+      setTheme('light');
     }
   };
 

@@ -1,6 +1,6 @@
 import PageHead from '@/components/shared/page-head';
 import { useGetStudents } from './queries/queries';
-import StudentsTable from './components/students-table';
+// import StudentsTable from './components/students-table';
 import { useSearchParams } from 'react-router-dom';
 import { DataTableSkeleton } from '@/components/shared/data-table-skeleton';
 import { Breadcrumbs } from '@/components/shared/breadcrumbs';
@@ -15,6 +15,7 @@ export default function StudentPage() {
   const users = data?.users;
   const totalUsers = data?.total_users; //1000
   const pageCount = Math.ceil(totalUsers / pageLimit);
+  console.log(users, pageCount, totalUsers, page);
 
   if (isLoading) {
     return (
@@ -37,12 +38,12 @@ export default function StudentPage() {
           { title: 'Students', link: '/students' }
         ]}
       />
-      <StudentsTable
+      {/* <StudentsTable
         users={users}
         page={page}
         totalUsers={totalUsers}
         pageCount={pageCount}
-      />
+      /> */}
     </div>
   );
 }
