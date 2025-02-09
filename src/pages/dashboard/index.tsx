@@ -277,6 +277,19 @@ export default function DashboardPage() {
   // const [showActivityBar, setShowActivityBar] = useState<Checked>(false)
   // const [showPanel, setShowPanel] = useState<Checked>(false)
 
+  const updateHeight = (length) => {
+    let heightMultipler = length / 5;
+    console.log(heightMultipler, length);
+    const isWholeNumber = heightMultipler % 1 === 0;
+    heightMultipler = isWholeNumber
+      ? heightMultipler
+      : Math.floor(heightMultipler) + 1;
+
+    if (contRef.current) {
+      contRef.current.style.height = `${126 * heightMultipler}px`;
+    }
+  };
+
   return (
     <>
       <PageHead title="Dashboard | App" />
@@ -352,38 +365,17 @@ export default function DashboardPage() {
                     <DropdownMenuCheckboxItem
                       checked={cardList.includes('data1')}
                       onCheckedChange={(e) => {
-                        console.log('llll', e);
                         setShowStatusBar(!showStatusBar);
 
                         const d = [...cardList];
                         if (d.includes('data1')) {
                           const re = d.filter((item) => item !== 'data1');
-
-                          let heightMultipler = re.length / 5;
-                          console.log(heightMultipler, re.length);
-                          const isWholeNumber = heightMultipler % 1 === 0;
-                          heightMultipler = isWholeNumber
-                            ? heightMultipler
-                            : Math.floor(heightMultipler) + 1;
-
-                          if (contRef.current) {
-                            contRef.current.style.height = `${126 * heightMultipler}px`;
-                          }
-
-                          setCardList(re); // Remove if present
+                          updateHeight(re.length);
+                          setCardList(re);
                         } else {
                           let we = [...d, 'data1'];
-                          let heightMultipler = we.length / 5;
-                          console.log(heightMultipler, we.length);
-                          const isWholeNumber = heightMultipler % 1 === 0;
-                          heightMultipler = isWholeNumber
-                            ? heightMultipler
-                            : Math.floor(heightMultipler) + 1;
-
-                          if (contRef.current) {
-                            contRef.current.style.height = `${126 * heightMultipler}px`;
-                          }
-                          setCardList(we); // Add if not present
+                          updateHeight(we.length);
+                          setCardList(we);
                         }
                       }}
                     >
@@ -392,13 +384,16 @@ export default function DashboardPage() {
                     <DropdownMenuCheckboxItem
                       checked={cardList.includes('data2')}
                       onCheckedChange={(e) => {
-                        console.log('llll', e);
                         setShowStatusBar(!showStatusBar);
                         const d = [...cardList];
                         if (d.includes('data2')) {
-                          setCardList(d.filter((item) => item !== 'data2')); // Remove if present
+                          const re = d.filter((item) => item !== 'data2');
+                          updateHeight(re.length);
+                          setCardList(re);
                         } else {
-                          setCardList([...d, 'data2']); // Add if not present
+                          let we = [...d, 'data2'];
+                          updateHeight(we.length);
+                          setCardList(we);
                         }
                       }}
                     >
@@ -411,9 +406,13 @@ export default function DashboardPage() {
                         setShowStatusBar(!showStatusBar);
                         const d = [...cardList];
                         if (d.includes('data3')) {
-                          setCardList(d.filter((item) => item !== 'data3'));
+                          const re = d.filter((item) => item !== 'data3');
+                          updateHeight(re.length);
+                          setCardList(re);
                         } else {
-                          setCardList([...d, 'data3']);
+                          let we = [...d, 'data3'];
+                          updateHeight(we.length);
+                          setCardList(we);
                         }
                       }}
                     >
@@ -426,9 +425,13 @@ export default function DashboardPage() {
                         setShowStatusBar(!showStatusBar);
                         const d = [...cardList];
                         if (d.includes('data4')) {
-                          setCardList(d.filter((item) => item !== 'data4')); // Remove if present
+                          const re = d.filter((item) => item !== 'data4');
+                          updateHeight(re.length);
+                          setCardList(re);
                         } else {
-                          setCardList([...d, 'data4']); // Add if not present
+                          let we = [...d, 'data4'];
+                          updateHeight(we.length);
+                          setCardList(we);
                         }
                       }}
                     >
@@ -440,9 +443,13 @@ export default function DashboardPage() {
                         setShowStatusBar(!showStatusBar);
                         const d = [...cardList];
                         if (d.includes('data5')) {
-                          setCardList(d.filter((item) => item !== 'data5')); // Remove if present
+                          const re = d.filter((item) => item !== 'data5');
+                          updateHeight(re.length);
+                          setCardList(re);
                         } else {
-                          setCardList([...d, 'data5']); // Add if not present
+                          let we = [...d, 'data5'];
+                          updateHeight(we.length);
+                          setCardList(we);
                         }
                       }}
                     >
