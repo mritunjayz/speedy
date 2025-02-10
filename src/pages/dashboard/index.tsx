@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PageHead from '@/components/shared/page-head.jsx';
 import {
   Card,
@@ -30,7 +30,9 @@ import { Button } from '@/components/ui/button';
 // import RecentSales from './components/recent-sales.js';
 
 // import TableOverview from './components/table.tsx'
+import CountryGraph from './components/country';
 import StudentsTable from '../students/components/students-table';
+import SongPie from './components/songPie';
 
 const statsData = {
   revenue: {
@@ -277,6 +279,20 @@ export default function DashboardPage() {
   // const [showActivityBar, setShowActivityBar] = useState<Checked>(false)
   // const [showPanel, setShowPanel] = useState<Checked>(false)
 
+  useEffect(() => {
+    const handleResize = () => {
+      // if (contRef.current) {
+      //   const { width } = containerRef.current.getBoundingClientRect();
+      // }
+    };
+    handleResize(); // Initial size
+    const resizeObserver = new ResizeObserver(handleResize);
+    if (contRef.current) {
+      resizeObserver.observe(contRef.current);
+    }
+    return () => resizeObserver.disconnect();
+  }, []);
+
   const updateHeight = (length) => {
     let heightMultipler = length / 5;
     console.log(heightMultipler, length);
@@ -286,7 +302,7 @@ export default function DashboardPage() {
       : Math.floor(heightMultipler) + 1;
 
     if (contRef.current) {
-      contRef.current.style.height = `${126 * heightMultipler}px`;
+      contRef.current.style.height = `${146 * heightMultipler}px`;
     }
   };
 
@@ -470,6 +486,19 @@ export default function DashboardPage() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
+              <div style={{ width: '35%' }}>
+                {/* <CardContent> */}
+                <SongPie />
+                {/* </CardContent> */}
+              </div>
+              <Card style={{ width: '65%' }}>
+                <CardContent>
+                  <CountryGraph />
+                </CardContent>
+              </Card>
             </div>
 
             <div className="">

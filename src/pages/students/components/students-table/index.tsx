@@ -116,7 +116,6 @@ export default function StudentsTable({ pageCount }: TStudentsTableProps) {
   // const [search, setSearch] = useState("")
 
   const handleSearch = (event) => {
-    console.log(event.target.value.trim(), 'kkkkkkkk');
     const value = event.target.value;
     // setSearch(value)
     // return
@@ -124,14 +123,13 @@ export default function StudentsTable({ pageCount }: TStudentsTableProps) {
       setData(tableData);
       return;
     }
+
     const filData = tableData.filter((item, index) => {
       const re = Object.values(item).filter((objValue) => {
-        const d = (objValue as string)
-          .toString()
-          .toLowerCase()
-          .includes(value.toString().toLowerCase());
-        console.log(d, 'hhhhhh', value);
-        return d;
+        if (item.songName.includes(value) || item.artist.includes(value)) {
+          return true;
+        }
+        return false;
       });
       console.log(re.length);
       return re.length;
@@ -162,7 +160,7 @@ export default function StudentsTable({ pageCount }: TStudentsTableProps) {
       <div className="flex flex-1 gap-4 py-5" style={{ width: '25%' }}>
         <Input
           type="email"
-          placeholder="Search People here"
+          placeholder="Search Artist, Songs Here"
           // defaultValue={search}
           onChange={handleSearch}
         />
