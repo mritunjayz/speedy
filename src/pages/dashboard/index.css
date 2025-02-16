@@ -1,0 +1,36 @@
+.container-g {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-item {
+  background-color: #3498db;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-family: Arial, sans-serif;
+}
+
+.item-1 {
+  min-width: 400px;
+  max-width: 500px;
+  flex: 1 0 400px;
+}
+
+.item-2 {
+  min-width: 800px;
+  flex: 1 0 800px;
+}
+
+.item-3 {
+  flex: 1 0 180px;
+}
+
+.item-4 {
+  flex: 1 0 300px;
+}
+
+.item-5 {
+  flex: 1 0 200px;
+}
